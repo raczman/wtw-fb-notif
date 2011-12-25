@@ -4,15 +4,27 @@ WTW-fb-notif
 Kompilacja
 ----------
 
-* Najpierw potrzebujesz fejsbukowy token, weŸ to [st¹d](https://www.facebook.com/dialog/oauth?client_id=291081334239552&response_type=token&redirect_uri=http://wtw-notif.herokuapp.com&scope=offline_access,manage_notifications,friends_birthday)
-* Otwórz plik fb.h i wklej swój token do ACCESS_TOKEN
-* Teraz mo¿esz kompilowaæ.
+* Najpierw potrzebujesz fejsbukowy token, weÅº to [stÄ…d](https://www.facebook.com/dialog/oauth?client_id=291081334239552&response_type=token&redirect_uri=http://wtw-notif.herokuapp.com&scope=offline_access,manage_notifications,friends_birthday)
+* OtwÃ³rz plik fb.h i wklej swÃ³j token do ACCESS_TOKEN
+* Teraz moÅ¼esz kompilowaÄ‡.
 
-Prywatnoœæ
+PrywatnoÅ›Ä‡
 ----------
 
-Aplikacja WTW-notif nie przechowuje waszych tokenów, i istnieje tylko po to ¿eby móc wygodnie pobraæ token bez babrania siê w tworzenie tokenów w³asnorêcznie. Je¿eli jednak uwa¿asz ¿e chcê ukraœæ Twoje konto, mo¿esz u¿ywaæ wtw-fb-notif bez dawania zezwoleñ WTW-notif. Musisz jedynie utworzyæ swoj¹ aplikacjê na FB, i w analogiczny sposób pobraæ dla niej token z nastêpuj¹cymi uprawnieniami:
+Aplikacja WTW-notif nie przechowuje waszych tokenÃ³w, i istnieje tylko po to Å¼eby mÃ³c wygodnie pobraÄ‡ token bez babrania siÄ™ w tworzenie tokenÃ³w wÅ‚asnorÄ™cznie. JeÅ¼eli jednak uwaÅ¼asz Å¼e chcÄ™ ukraÅ›Ä‡ Twoje konto, moÅ¼esz uÅ¼ywaÄ‡ wtw-fb-notif bez dawania zezwoleÅ„ aplikacji WTW-notif. Musisz jedynie utworzyÄ‡ swojÄ… aplikacjÄ™ na FB, i w analogiczny sposÃ³b pobraÄ‡ dla niej token z nastÄ™pujÄ…cymi uprawnieniami:
 
-* offline_access (¿eby token nie wygasa³)
+* offline_access (Å¼eby token nie wygasaÅ‚)
 * manage_notifications (czytanie notyfikacji)
 * friends_birthday (urodziny znajomych)
+
+Jak utworzyÄ‡ aplikacjÄ™ i pobraÄ‡ dla niej token, zostawiam jako Ä‡wiczenie dla czytajÄ…cego.
+
+Bugi
+----
+
+W cholerÄ™ i jeszcze trochÄ™. Jako Å¼e API WTW ma swoje zawiÅ‚oÅ›ci, sÄ… rzeczy ktÃ³re nie dziaÅ‚ajÄ…, albo mogÄ… wysypywaÄ‡ komunikator. Z dzikÄ… rozkoszÄ… przyjmÄ™ patche.
+
+Licencja
+--------
+
+RÃ³bcie z tym co chcecie, nie zezwalam tylko na sprzedaÅ¼ pluginu, kodu ÅºrÃ³dÅ‚owego, oraz produktÃ³w pochodnych. 
