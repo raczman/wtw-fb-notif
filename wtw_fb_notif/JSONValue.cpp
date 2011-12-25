@@ -34,8 +34,8 @@
 #include "JSONValue.h"
 
 // Macros to free an array/object
-#define FREE_ARRAY(x) { JSONArray::iterator iter; for (iter = x.begin(); iter != x.end(); iter++) { delete *iter; } }
-#define FREE_OBJECT(x) { JSONObject::iterator iter; for (iter = x.begin(); iter != x.end(); iter++) { delete (*iter).second; } }
+#define FREE_ARRAY(x) { JSONArray::iterator iter; for (iter = x.begin(); iter != x.end(); ++iter) { delete *iter; } }
+#define FREE_OBJECT(x) { JSONObject::iterator iter; for (iter = x.begin(); iter != x.end(); ++iter) { delete (*iter).second; } }
 
 /**
  * Parses a JSON encoded value to a JSONValue object
@@ -400,7 +400,7 @@ JSONValue::~JSONValue()
 	if (type == JSONType_Array)
 	{
 		JSONArray::iterator iter;
-		for (iter = array_value.begin(); iter != array_value.end(); iter++)
+		for (iter = array_value.begin(); iter != array_value.end(); ++iter)
 			delete *iter;
 	}
 	else if (type == JSONType_Object)
@@ -689,7 +689,7 @@ std::wstring JSONValue::StringifyString(const std::wstring &str)
 			str_out += chr;
 		}
 		
-		iter++;
+		++iter;
 	}
 	
 	str_out += L"\"";

@@ -3,6 +3,7 @@
 #include <crtdbg.h>
 #endif
 #include <Windows.h>
+#include <process.h>
 #include <wtwPlugin.h>
 
 extern WTWFUNCTIONS* wtw;

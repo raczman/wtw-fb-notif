@@ -49,14 +49,14 @@ JSONValue* fql_query(const wchar_t* query)
 	return j;
 }
 
-DWORD WINAPI notif_thread(LPVOID)
+unsigned WINAPI notif_thread(LPVOID)
 {
 	JSONValue *j = fql_query(L"select+title_text%2c+href%2c+icon_url+from+notification+where+recipient_id+%3d+me()+and+is_unread");
 	if(j && j->IsObject())
 	{
 		JSONObject obj = j->AsObject();
 		JSONArray data = obj[L"data"]->AsArray();
-		for(JSONArray::const_iterator i = data.begin();i != data.end();i++)
+		for(JSONArray::const_iterator i = data.begin();i != data.end();++i)
 		{
 			if(!((*i)->IsObject()))
 				continue;
@@ -71,7 +71,7 @@ DWORD WINAPI notif_thread(LPVOID)
 	return 0;
 }
 
-DWORD WINAPI bday_thread(LPVOID)
+unsigned WINAPI bday_thread(LPVOID)
 {
 	SYSTEMTIME st;
 	GetSystemTime(&st);
@@ -90,7 +90,7 @@ DWORD WINAPI bday_thread(LPVOID)
 		
 		JSONObject obj = j->AsObject();
 		JSONArray data = (obj[L"data"] ? obj[L"data"]->AsArray(): JSONArray());
-		for(JSONArray::const_iterator i = data.begin();i != data.end();i++)
+		for(JSONArray::const_iterator i = data.begin();i != data.end(); ++i)
 		{
 			JSONObject i_obj = (*i)->AsObject();
 			wstring name = i_obj[L"name"]->AsString();
@@ -105,7 +105,7 @@ DWORD WINAPI bday_thread(LPVOID)
 
 WTW_PTR timer_expire(WTW_PARAM, WTW_PARAM)
 {
-	thr = CreateThread(NULL, 0, notif_thread,0,0,0);
+	thr = (HANDLE)_beginthreadex(0, 0, notif_thread, 0, 0, 0);
 	return 0;
 }
 

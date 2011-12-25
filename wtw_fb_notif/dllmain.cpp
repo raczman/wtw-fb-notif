@@ -54,7 +54,7 @@ WTW_PLUGIN_API_ENTRY(int) pluginLoad(DWORD /*callReason*/, WTWFUNCTIONS* f) {
 	timer.sleepTime = INTERVAL;
 	timer.id = timer_id;
 	wtw->fnCall(WTW_TIMER_CREATE,(WTW_PARAM)&timer,0);
-	CreateThread(0, 0, bday_thread, 0, 0, 0);
+	_beginthreadex(0, 0, bday_thread, 0, 0, 0);
 	return 0;
 }
 
