@@ -84,12 +84,12 @@ DWORD WINAPI bday_thread(LPVOID)
 	wstring fql = q.str();
 
 	JSONValue *j = fql_query(fql.c_str());
-
+	
 	if(j)
 	{
 		
 		JSONObject obj = j->AsObject();
-		JSONArray data = obj[L"data"]->AsArray();
+		JSONArray data = (obj[L"data"] ? obj[L"data"]->AsArray(): JSONArray());
 		for(JSONArray::const_iterator i = data.begin();i != data.end();i++)
 		{
 			JSONObject i_obj = (*i)->AsObject();
