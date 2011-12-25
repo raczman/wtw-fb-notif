@@ -18,11 +18,11 @@ bool WinHttpClient::SendHttpRequest(const wstring &httpVerb)
 {
 	// Make verb uppercase.
 	wstring verb = httpVerb;
-	if (wcsicmp(verb.c_str(), L"GET") == 0)
+	if (_wcsicmp(verb.c_str(), L"GET") == 0)
 	{
 		verb = L"GET";
 	}
-	else if (wcsicmp(verb.c_str(), L"POST") == 0)
+	else if (_wcsicmp(verb.c_str(), L"POST") == 0)
 	{
 		verb = L"POST";
 	}
@@ -117,12 +117,12 @@ bool WinHttpClient::SendHttpRequest(const wstring &httpVerb)
 										wstring lwrHeader = szHeader;
 
 										// Try to get charset from HTTP reponse header.
-										int iCharsetIndex = lwrHeader.find(L"charset=");
+										unsigned int iCharsetIndex = lwrHeader.find(L"charset=");
 										if (iCharsetIndex != wstring::npos)
 										{
 											iCharsetIndex += 8;     // "charset=" has 8 characters.
-											int iCharsetLength = 0;
-											for (int i = iCharsetIndex; i < lwrHeader.size(); i++)
+											unsigned int iCharsetLength = 0;
+											for (unsigned int i = iCharsetIndex; i < lwrHeader.size(); i++)
 											{
 												if (i == lwrHeader.size()-1
 													|| lwrHeader[i] == ' '
