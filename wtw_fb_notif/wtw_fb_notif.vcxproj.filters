@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\wtw-api">
+      <UniqueIdentifier>{632ecc5a-9b3e-4a54-864f-d93bd8b5670b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="http.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JSON.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONValue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdinc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="http.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JSON.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONValue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\plInterface.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\utlIgnore.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\utlNews.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\utlWebUtils7.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwAbout.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwAccountManager.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwArchImport.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwArchive.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwBrowserInterface.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwCaps.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwChatCommandBar.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwChatWindow.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwCommandLine.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwConference.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwContact.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwContactList.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwCrypto.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwDefaultActions.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwEvents.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwExtCtData.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwFile.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwFTManager.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwGraph.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwGroupOptions.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwHttpServices.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwI18N.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwInputWindows.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwLog.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwMenu.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwMessageHelper.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwMeta.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwNetLib.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwNetSett.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwOptions.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwOther.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwPanels.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwPlugin.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwPluginSettings.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwProcAddr.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwProperties.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwProtocol.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwProtocolExt.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwScriptInterface.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwSession.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwSettings.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwSMS.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwStandardImpl.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwStatusWnd.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwThreadSwitch.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwTimer.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwToolTips.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwTray.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwTrayNotify.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwUPnP.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwUriHandlers.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwVCard.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwWindowMessageFilter.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwWinInet.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+    <ClInclude Include="wtw-api\wtwXMPP.h">
+      <Filter>Header Files\wtw-api</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
