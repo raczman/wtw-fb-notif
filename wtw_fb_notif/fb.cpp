@@ -7,6 +7,7 @@
 #include <string>
 #include <sstream>
 #include "JSON.h"
+#include "options.h"
 
 using namespace std;
 
@@ -34,16 +35,35 @@ WTW_PTR click_notif_cb(WTW_PARAM wp, WTW_PARAM lp)
 
 JSONValue* fql_query(const wchar_t* query)
 {
+	wchar_t *token = get_token();
+	if(wcslen(token) == 0)
+	{
+		delete token;
+		return NULL;
+	}
 	wstring url = L"https://graph.facebook.com/fql?q=";
 	url += query;
 	url += L"&access_token=";
-	url += ACCESS_TOKEN;
+	url += token;
+	
+	delete token;
 
 	WinHttpClient *cl = new WinHttpClient(url);
 	cl->SendHttpRequest();
 	LOG(url.c_str());
 	LOG(cl->GetHttpResponse().c_str());
 	JSONValue *j = JSON::Parse(cl->GetHttpResponse().c_str());
+
+	if(j && j->IsObject())
+	{
+		JSONObject o = j->AsObject();
+		if(o[L"error"])
+		{
+			__LOG(wtw, L"FBPL", L"B³¹d podczas wykonywania zapytania FQL! Prawdopodobnie token jest b³êdny.", WTW_LOG_LEVEL_ERROR);
+			delete j;
+			return NULL;
+		}
+	}
 
 	delete cl;
 	return j;
@@ -54,6 +74,7 @@ unsigned WINAPI notif_thread(LPVOID)
 	JSONValue *j = fql_query(L"select+title_text%2c+href%2c+icon_url+from+notification+where+recipient_id+%3d+me()+and+is_unread");
 	if(j && j->IsObject())
 	{
+
 		JSONObject obj = j->AsObject();
 		JSONArray data = obj[L"data"]->AsArray();
 		for(JSONArray::const_iterator i = data.begin();i != data.end();++i)

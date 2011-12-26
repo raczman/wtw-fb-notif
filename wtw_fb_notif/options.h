@@ -10,4 +10,4 @@ void init_settings();
 void remove_settings();
 
 #define tokenSetting L"FB\\Token"
-wstring& get_token();
+wchar_t* get_token();

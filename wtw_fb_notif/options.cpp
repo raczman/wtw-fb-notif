@@ -26,11 +26,12 @@ void init_settings()
 
 	wtw->fnCall(WTW_SETTINGS_GET_MY_CONFIG_FILE, (WTW_PARAM)&myCfg, (WTW_PARAM)ghInstance);
 	wtw->fnCall(WTW_SETTINGS_INIT_EX, (WTW_PARAM)myCfg.pBuffer, (WTW_PARAM)&pCfg);
-	get_token();
+	wtw->fnCall(WTW_SETTINGS_READ, (WTW_PARAM)pCfg, 0);
 }
 
 void remove_settings()
 {
+	wtw->fnCall(WTW_SETTINGS_WRITE, (WTW_PARAM)pCfg, 0);
 	wtw->fnCall(WTW_OPTION_PAGE_REMOVE, (WTW_PARAM)ghInstance, (WTW_PARAM)page_id);
 }
 
@@ -52,11 +53,10 @@ LRESULT CALLBACK wnd_proc(HWND h, UINT msg, WPARAM wp, LPARAM lp)
 	return DefDlgProc(h, msg, wp, lp);
 }
 
-wstring& get_token()
+wchar_t* get_token()
 {
-	wchar_t *tmp;
-	wtwGetStr(wtw, pCfg, tokenSetting, L"",&tmp);
-	wstring &ret = wstring(tmp);
+	wchar_t *ret;
+	wtwGetStr(wtw, pCfg, tokenSetting, L"",&ret);
 	return ret;
 }
 
@@ -69,11 +69,15 @@ WTW_PTR settings_callback(WTW_PARAM wp, WTW_PARAM lp)
 	switch(pi->action)
 	{
 	case WTW_OPTIONS_PAGE_ACTION_SHOW:
+		{
 		okno = CreateDialog((HINSTANCE)ghInstance, MAKEINTRESOURCE(IDD_DIALOG1), pi->handle, 0);
 		MoveWindow(okno, pi->x, pi->y, pi->cx, pi->cy, TRUE);
 		SetWindowLongPtr(okno, GWLP_WNDPROC, (LONG)wnd_proc);
-		SetDlgItemText(okno, IDC_EDIT1, get_token().c_str());
+		wchar_t* token = get_token();
+		SetDlgItemText(okno, IDC_EDIT1, token);
+		delete token;
 		break;
+		}
 	case WTW_OPTIONS_PAGE_ACTION_HIDE:
 		DestroyWindow(okno);
 		break;
@@ -83,6 +87,7 @@ WTW_PTR settings_callback(WTW_PARAM wp, WTW_PARAM lp)
 		wchar_t* ptr = new wchar_t[MAX_PATH];
 		GetDlgItemText(okno, IDC_EDIT1, ptr, MAX_PATH);
 		wtwSetStr(wtw, pCfg, tokenSetting, ptr);
+		wtw->fnCall(WTW_SETTINGS_WRITE, (WTW_PARAM)pCfg, 0);
 		delete[] ptr;
 		if(WTW_OPTIONS_PAGE_ACTION_OK == pi->action)
 			DestroyWindow(okno);
