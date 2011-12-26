@@ -80,7 +80,7 @@ struct wtwOptionPageShowInfo
 													// ********************************
 
 #define WTW_OPTIONS_PAGE_ACTION_APPLY          4	// Kliknieto Zastosuj
-#define WTW_OPTIONS_PAGE_ACTION_MOVE           6	// Przesun¹æ okno
+#define WTW_OPTIONS_PAGE_ACTION_MOVE			 6	// Przesun¹æ okno
 
 /////////////////////////////////////////////////////////////////////////////////
 //

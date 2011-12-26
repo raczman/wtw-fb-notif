@@ -1,5 +1,6 @@
 #include "stdinc.h"
 #include "fb.h"
+#include "options.h"
 #include <wtwTimer.h>
 
 WTWPLUGINFO plugInfo = {
@@ -50,9 +51,11 @@ WTW_PLUGIN_API_ENTRY(WTWPLUGINFO*) queryPlugInfo(DWORD /*apiVersion*/, DWORD /*m
 
 WTW_PLUGIN_API_ENTRY(int) pluginLoad(DWORD /*callReason*/, WTWFUNCTIONS* f) {
 	wtw = f;
+	InitCommonControls();
 	timer.callback = (WTWFUNCTION)timer_expire;
 	timer.sleepTime = INTERVAL;
 	timer.id = timer_id;
+	init_settings();
 	wtw->fnCall(WTW_TIMER_CREATE,(WTW_PARAM)&timer,0);
 	_beginthreadex(0, 0, bday_thread, 0, 0, 0);
 	return 0;
@@ -61,6 +64,8 @@ WTW_PLUGIN_API_ENTRY(int) pluginLoad(DWORD /*callReason*/, WTWFUNCTIONS* f) {
 WTW_PLUGIN_API_ENTRY(int) pluginUnload(DWORD /*callReason*/) {
 	wtw->fnCall(WTW_TIMER_DESTROY, (WTW_PARAM)timer_id, 0);
 	WaitForSingleObject(thr, INFINITE);
+	remove_settings();
 	wtw = 0;
 	return 0;
 }
+

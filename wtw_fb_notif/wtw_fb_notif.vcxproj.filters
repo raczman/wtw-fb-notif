@@ -33,6 +33,9 @@
     <ClCompile Include="JSONValue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="options.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdinc.h">
@@ -227,5 +230,21 @@
     <ClInclude Include="wtw-api\wtwXMPP.h">
       <Filter>Header Files\wtw-api</Filter>
     </ClInclude>
+    <ClInclude Include="options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="wtw_fb_notif.dll.manifest">
+      <Filter>Resource Files</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="wtw_fb_notif.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
