@@ -1,12 +1,10 @@
-WTW-fb-notif
+﻿WTW-fb-notif
 ============
 
 Kompilacja
 ----------
 
-* Najpierw potrzebujesz fejsbukowy token, weź to [stąd](https://www.facebook.com/dialog/oauth?client_id=291081334239552&response_type=token&redirect_uri=http://wtw-notif.herokuapp.com&scope=offline_access,manage_notifications,friends_birthday)
-* Otwórz plik fb.h i wklej swój token do ACCESS_TOKEN
-* Teraz możesz kompilować.
+* Potrzebny jest VS2010
 
 Prywatność
 ----------
