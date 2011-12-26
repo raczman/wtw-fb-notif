@@ -1,8 +1,14 @@
 #include "stdinc.h"
 #include "options.h"
 #include "resource.h"
+#include <wtwSettings.h>
+#include <string>
+
+using namespace std;
 
 HWND okno;
+wtwMyConfigFile myCfg;
+void* pCfg = 0;
 
 void init_settings()
 {
@@ -14,6 +20,13 @@ void init_settings()
 	d.parentID = WTW_OPTIONS_GROUP_PLUGINS;
 	d.iconID = 0;
 	wtw->fnCall(WTW_OPTION_PAGE_ADD, (WTW_PARAM)ghInstance ,(WTW_PARAM)&d);
+
+	myCfg.bufferSize= MAX_PATH + 1;
+	myCfg.pBuffer = new wchar_t[myCfg.bufferSize];
+
+	wtw->fnCall(WTW_SETTINGS_GET_MY_CONFIG_FILE, (WTW_PARAM)&myCfg, (WTW_PARAM)ghInstance);
+	wtw->fnCall(WTW_SETTINGS_INIT_EX, (WTW_PARAM)myCfg.pBuffer, (WTW_PARAM)&pCfg);
+	get_token();
 }
 
 void remove_settings()
@@ -39,6 +52,14 @@ LRESULT CALLBACK wnd_proc(HWND h, UINT msg, WPARAM wp, LPARAM lp)
 	return DefDlgProc(h, msg, wp, lp);
 }
 
+wstring& get_token()
+{
+	wchar_t *tmp;
+	wtwGetStr(wtw, pCfg, tokenSetting, L"",&tmp);
+	wstring &ret = wstring(tmp);
+	return ret;
+}
+
 WTW_PTR settings_callback(WTW_PARAM wp, WTW_PARAM lp)
 {
 	wtwOptionPageShowInfo* pi = (wtwOptionPageShowInfo*)wp;
@@ -51,16 +72,22 @@ WTW_PTR settings_callback(WTW_PARAM wp, WTW_PARAM lp)
 		okno = CreateDialog((HINSTANCE)ghInstance, MAKEINTRESOURCE(IDD_DIALOG1), pi->handle, 0);
 		MoveWindow(okno, pi->x, pi->y, pi->cx, pi->cy, TRUE);
 		SetWindowLongPtr(okno, GWLP_WNDPROC, (LONG)wnd_proc);
+		SetDlgItemText(okno, IDC_EDIT1, get_token().c_str());
 		break;
 	case WTW_OPTIONS_PAGE_ACTION_HIDE:
 		DestroyWindow(okno);
 		break;
 	case WTW_OPTIONS_PAGE_ACTION_OK:
 	case WTW_OPTIONS_PAGE_ACTION_APPLY:
-
+		{
+		wchar_t* ptr = new wchar_t[MAX_PATH];
+		GetDlgItemText(okno, IDC_EDIT1, ptr, MAX_PATH);
+		wtwSetStr(wtw, pCfg, tokenSetting, ptr);
+		delete[] ptr;
 		if(WTW_OPTIONS_PAGE_ACTION_OK == pi->action)
 			DestroyWindow(okno);
 		break;
+		}
 	default:
 		break;
 	}
